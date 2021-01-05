@@ -12,6 +12,6 @@ return fetch(url).then(response => {
       return Promise.reject(response.status);
     }
   })
-  .then(data => data);
+  .then(data => data.hits);
 }
 export default searchImg;

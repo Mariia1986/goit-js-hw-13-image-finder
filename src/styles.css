@@ -18,3 +18,12 @@ body {
 .is-hidden{
   display: none;
 }
+.gallery{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.gallery>li{
+  margin: 20px;
+  list-style: none;
+}
