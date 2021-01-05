@@ -4,13 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
     <title>Image finder</title>
 
-    <!-- Don't forget to delete this style tag. -->
+    
     
   </head>
 
   <body>
+    <form class="search-form" id="search-form">
+      <input
+        type="text"
+        name="query"
+        autocomplete="off"
+        placeholder="Search images..."
+      />
+      <button type="submit" class="search_button">Search</button>
+    </form>
     
+    <ul class="gallery">
+      
+    </ul>
+    <button class="loadmore is-hidden">Load more</button>
   </body>
 </html>
