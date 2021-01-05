@@ -27,3 +27,10 @@ body {
   margin: 20px;
   list-style: none;
 }
+.stats{
+  display:flex;
+ 
+}
+.stats-item{
+  margin: 10px;
+}

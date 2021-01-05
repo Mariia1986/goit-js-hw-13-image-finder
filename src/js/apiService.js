@@ -14,4 +14,6 @@ return fetch(url).then(response => {
   })
   .then(data => data.hits);
 }
-export default searchImg;
+
+
+export default searchImg ;
