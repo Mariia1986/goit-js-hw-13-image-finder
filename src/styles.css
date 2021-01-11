@@ -34,3 +34,8 @@ body {
 .stats-item{
   margin: 10px;
 }
+input{
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
