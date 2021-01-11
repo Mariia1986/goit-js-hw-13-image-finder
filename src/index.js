@@ -1,11 +1,13 @@
 import './styles.css';
 import imgitem from './tamplates/item.hbs';
 import refs from './js/refs';
-const { form, searchBtn, input, gallery, loadmoreBtn } = refs;
+const { form, input, gallery, loadmoreBtn } = refs;
 import search from './js/apiService.js';
+import onClickImg from './js/basiclightbox';
+import notifError from './js/notification';
 
 form.addEventListener('submit', renderImg);
-
+gallery.addEventListener('click', onClickImg);
 loadmoreBtn.addEventListener('click', newpage);
 
 function renderImg(e) {
@@ -17,23 +19,29 @@ function renderImg(e) {
     return;
   }
 
-  search.searchImg().then(renderImglist);
+  search
+    .searchImg()
+    .then(renderImglist)
+    .catch(notifError('Ops', 'Something wrong'));
 }
 function renderImglist(arr) {
   const markup = imgitem(arr);
+  if (markup) {
+    loadmoreBtn.classList.remove('is-hidden');
+  }
   gallery.insertAdjacentHTML('beforeEnd', markup);
-  loadmoreBtn.classList.remove('is-hidden');
-if (search.page>=2){
-  window.scrollBy({
-    top: window.innerHeight - 80,
-    behavior: 'smooth',
-  })};
-  // window.scrollByPages(search.page)}
+
+  if (search.page >= 2) {
+    window.scrollBy({
+      top: window.innerHeight - 80,
+      behavior: 'smooth',
+    });
+  }
+
   input.value = '';
 }
 
 function newpage() {
   search.setPage();
-
   search.searchImg().then(renderImglist);
 }
