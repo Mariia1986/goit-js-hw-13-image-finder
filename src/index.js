@@ -19,15 +19,14 @@ function renderImg(e) {
     return;
   }
 
-  search
-    .searchImg()
-    .then(renderImglist)
-    .catch(notifError('Ops', 'Something wrong'));
+  search.searchImg().then(renderImglist);
 }
 function renderImglist(arr) {
   const markup = imgitem(arr);
-  if (markup) {
-    loadmoreBtn.classList.remove('is-hidden');
+  loadmoreBtn.classList.remove('is-hidden');
+  if (arr.length === 0) {
+    notifError('Oops', 'Something happen wrong');
+    loadmoreBtn.classList.add('is-hidden');
   }
   gallery.insertAdjacentHTML('beforeEnd', markup);
 

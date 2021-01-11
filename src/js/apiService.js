@@ -34,9 +34,9 @@ export default {
         if (response.ok) {
           return response.json();
         } else {
-          return Promise.reject()
+          return Promise.reject();
         }
       })
-      .then(data => data.hits)
+      .then(data => data.hits);
   },
 };

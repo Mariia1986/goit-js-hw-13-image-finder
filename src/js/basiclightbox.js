@@ -9,4 +9,4 @@ function onClickImg(event) {
       `);
   instance.show();
 }
-export default onClickImg
+export default onClickImg;
