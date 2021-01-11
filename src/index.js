@@ -23,11 +23,12 @@ function renderImglist(arr) {
   const markup = imgitem(arr);
   gallery.insertAdjacentHTML('beforeEnd', markup);
   loadmoreBtn.classList.remove('is-hidden');
-
+if (search.page>=2){
   window.scrollBy({
-    top: gallery.scrollHeight,
+    top: window.innerHeight - 80,
     behavior: 'smooth',
-  });
+  })};
+  // window.scrollByPages(search.page)}
   input.value = '';
 }
 
